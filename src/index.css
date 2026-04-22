@@ -1,0 +1,37 @@
+/* DM Sans via fontsource */
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; }
+
+  body {
+    background-color: #FAFAF8;
+    color: #0F0F0F;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Remove outline padrão — repor em foco */
+  *:focus { outline: none; }
+  *:focus-visible {
+    outline: 1px solid #0F0F0F;
+    outline-offset: 2px;
+  }
+
+  /* Input base — sem bg do sistema */
+  input, textarea {
+    background: transparent;
+    font-family: inherit;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #FAFAF8 inset;
+  -webkit-text-fill-color: #0F0F0F;
+  transition: background-color 5000s ease-in-out 0s;
+}
