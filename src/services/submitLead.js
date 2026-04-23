@@ -1,4 +1,4 @@
-const WEBHOOK_URL = import.meta.env.VITE_N8N_WEBHOOK_URL
+const WEBHOOK_URL = 'https://n8n.biaso.cloud/webhook/biaso-quiz'
 
 export async function submitLead({ lead, answers, result }) {
   const payload = {
