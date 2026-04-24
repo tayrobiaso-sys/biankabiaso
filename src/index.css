@@ -1,4 +1,4 @@
-/* DM Sans via fontsource */
+/* Fontes */
 @import '@fontsource/dm-sans/400.css';
 @import '@fontsource/dm-sans/500.css';
 
@@ -7,31 +7,42 @@
 @tailwind utilities;
 
 @layer base {
-  html { -webkit-font-smoothing: antialiased; }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
+  /* Fundo global — warm dark */
   body {
-    background-color: #FAFAF8;
-    color: #0F0F0F;
+    background-color: #1C1714;
+    color: #0F0D0C;
     font-family: 'DM Sans', sans-serif;
   }
 
-  /* Remove outline padrão — repor em foco */
+  /* Focus acessível — gold no lugar do outline azul do browser */
   *:focus { outline: none; }
   *:focus-visible {
-    outline: 1px solid #0F0F0F;
+    outline: 1px solid #C8A882;
     outline-offset: 2px;
   }
 
-  /* Input base — sem bg do sistema */
+  /* Input — sem bg do sistema */
   input, textarea {
     background: transparent;
     font-family: inherit;
   }
+
+  /* Autofill — mantém o fundo cream do card, não o azul do browser */
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #FAFAF8 inset;
+    -webkit-text-fill-color: #0F0D0C;
+    transition: background-color 5000s ease-in-out 0s;
+  }
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px #FAFAF8 inset;
-  -webkit-text-fill-color: #0F0F0F;
-  transition: background-color 5000s ease-in-out 0s;
+/* Utilitário para opacidade com cores Tailwind */
+@layer utilities {
+  .border-gold-10  { border-color: rgba(200, 168, 130, 0.10); }
+  .border-gold-20  { border-color: rgba(200, 168, 130, 0.20); }
 }
